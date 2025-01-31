@@ -36,7 +36,7 @@ h1 {
 .description {
     font-size: 1rem;
     margin-bottom: 20px;
-    font-style: italic;
+    font-style: arial;
     opacity: 0;
     animation: fadeInText 1s 0.5s forwards;
 }
