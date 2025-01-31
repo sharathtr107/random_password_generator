@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(45deg, #ff6b6b, #ffcc5c, #6b5b95, #feb236);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 450px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    animation: slideDown 1s ease-in-out;
+}
+
+.description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-style: italic;
+    opacity: 0;
+    animation: fadeInText 1s 0.5s forwards;
+}
+
+.password-box {
+    margin-bottom: 20px;
+}
+
+#password {
+    font-size: 1.5rem;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    min-height: 40px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    animation: typingAnimation 3s steps(10) 1, shuffleAnimation 2s ease-out forwards;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+.settings,
+.options {
+    margin-bottom: 20px;
+}
+
+.options label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.tip {
+    font-size: 0.9rem;
+    color: #d1d1d1;
+    margin-top: 15px;
+    opacity: 0;
+    animation: fadeInText 1s 1.2s forwards;
+}
+
+footer {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: #ccc;
+    opacity: 0;
+    animation: fadeInText 1s 1.5s forwards;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+        width: 90%;
+    }
+}
+
+/* Animations */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Typing Effect for Password */
+@keyframes typingAnimation {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Shuffling Effect for Password */
+@keyframes shuffleAnimation {
+    0% {
+        content: "******";
+    }
+    25% {
+        content: "********";
+    }
+    50% {
+        content: "******R@nd0m";
+    }
+    75% {
+        content: "*********Pass";
+    }
+    100% {
+        content: attr(data-password);
+    }
+}
